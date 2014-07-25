@@ -6,6 +6,7 @@ defmodule Exeque.Mixfile do
      version: "0.1.0",
      elixir: "~> 0.14.3",
      description: description,
+     package:     package,
      deps: deps]
   end
 
@@ -33,6 +34,14 @@ defmodule Exeque.Mixfile do
     """
     Exeque allows you to queue up a list of functions and specify how many workers should be used to run those functions.
     """
+  end
+
+  defp package do
+    [
+      contributors: [ "Duff OMelia <duff@omelia.org>"],
+      licenses:     ["MIT"],
+      links:        [github: "https://github.com/duff/exeque"]
+    ]
   end
 
 end
