@@ -35,6 +35,11 @@ defmodule Exeque do
     Agent.get_and_update(name, &pop_it(&1))
   end
 
+  def create_and_process(queue_name, functions, worker_count) do
+    create_queue(queue_name)
+    enque(queue_name, functions)
+    process(queue_name, worker_count)
+  end
 
   defp pop_it([head|tail]) do
     { head, tail }
