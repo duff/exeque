@@ -13,8 +13,12 @@ significant performance boost.
 
 ## Installation / Dependency
 
-``` elixir
-{ :exeque, git: "https://github.com/duff/exeque"}
+Add exeque to your `mix.exs` dependencies with whatever version you'd like to depend on:
+
+```elixir
+def deps do
+  [ {:exeque, "~> x.y.z"} ]
+end
 ```
 
 

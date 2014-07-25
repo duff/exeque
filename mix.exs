@@ -3,8 +3,9 @@ defmodule Exeque.Mixfile do
 
   def project do
     [app: :exeque,
-     version: "0.0.1",
+     version: "0.1.0",
      elixir: "~> 0.14.3",
+     description: description,
      deps: deps]
   end
 
@@ -25,7 +26,13 @@ defmodule Exeque.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [
-    ]
+    []
   end
+
+  defp description do
+    """
+    Exeque allows you to queue up a list of functions and specify how many workers should be used to run those functions.
+    """
+  end
+
 end
