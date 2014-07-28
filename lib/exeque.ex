@@ -22,11 +22,11 @@ defmodule Exeque do
   end
 
   def process(queue_name, worker_count) do
-    pids = Enum.map((1..worker_count), fn(_) ->
-      spawn fn -> Worker.work_against(queue_name) end
+    monitored = Enum.map((1..worker_count), fn(_) ->
+      spawn_monitor fn -> Worker.work_against(queue_name) end
     end)
 
-    pids |> monitor |> wait_until_complete
+    monitored |> wait_until_complete
   end
 
   def create_enque_and_process(queue_name, functions, worker_count) do
@@ -53,15 +53,8 @@ defmodule Exeque do
     { nil, [] }
   end
 
-  defp monitor(pids) do
-    Enum.each(pids, fn(pid) ->
-      Process.monitor(pid)
-    end)
-    pids
-  end
-
-  defp wait_until_complete(pids) do
-    Enum.each(pids, fn(pid) ->
+  defp wait_until_complete(monitored) do
+    Enum.each(monitored, fn({ pid, _ }) ->
       receive do
         {:DOWN, _, _, ^pid, _} -> :ok
       end
