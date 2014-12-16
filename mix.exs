@@ -4,7 +4,7 @@ defmodule Exeque.Mixfile do
   def project do
     [app: :exeque,
      version: "0.1.0",
-     elixir: "~> 0.14.3",
+     elixir: "~> 1.0.2",
      description: description,
      package:     package,
      deps: deps]
