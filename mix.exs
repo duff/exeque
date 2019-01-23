@@ -3,8 +3,8 @@ defmodule Exeque.Mixfile do
 
   def project do
     [app: :exeque,
-     version: "0.1.0",
-     elixir: "~> 1.0.2",
+     version: "0.1.1",
+     elixir: "~> 1.4",
      description: description,
      package:     package,
      deps: deps]
@@ -40,7 +40,7 @@ defmodule Exeque.Mixfile do
     [
       contributors: [ "Duff OMelia <duff@omelia.org>"],
       licenses:     ["MIT"],
-      links:        [github: "https://github.com/duff/exeque"]
+      links: %{"GitHub" => "https://github.com/duff/exeque"}
     ]
   end
 
